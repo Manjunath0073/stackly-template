@@ -19,14 +19,17 @@ header {
     height:40px
 }
 
+.nav-item li a {
+    color: #e2e8f0;   /* light gray/white */
+    text-decoration: none;
+}
+
 .nav-item {
     display: flex;
     list-style: none;
     gap: 25px;
     align-items: center;
     transition: all 0.3s ease;
-    transform: translateY(-10px);
-    opacity: 0;
 }
 
 .nav-item.active {
@@ -41,13 +44,13 @@ nav ul {
     gap: 20px;
 }
 
-nav a {
-    color: #fff;
+.nav-item li a {
+    color: #e2e8f0;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: 0.3s;
 }
 
-nav a:hover {
+.nav-item li a:hover {
     color: #00bffe;
 }
 
