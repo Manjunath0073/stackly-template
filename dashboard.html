@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+
+<div class="sidebar">
+  <h2>IT Admin</h2>
+
+  <ul>
+    <li><a href="404.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+    <li><a href="404.html"><i class="fas fa-users"></i> Users</a></li>
+    <li><a href="404.html"><i class="fas fa-box"></i> Orders</a></li>
+    <li><a href="404.html"><i class="fas fa-envelope"></i> Messages</a></li>
+  </ul>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <div class="topbar">
+    <h1>Dashboard</h1>
+
+    <div class="user-info">
+      <i class="fas fa-user-circle"></i>
+      <h3>Welcome, <span id="userEmail"></span></h3>
+      <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">Users <h2>120</h2></div>
+    <div class="card">Orders <h2>75</h2></div>
+    <div class="card">Revenue <h2>$5K</h2></div>
+  </div>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>
