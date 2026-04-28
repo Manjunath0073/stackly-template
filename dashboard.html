@@ -54,9 +54,7 @@
     </div>
     <!-- Logout -->
     <div class="logout">
-      <a href="login.html">
-        <button type="button">Logout</button>
-      </a>
+        <button class="logout" onclick="logout()">Logout</button>
     </div>
   </div>
 
@@ -290,6 +288,10 @@ setInterval(() => {
   toggleBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('active');
   });
+
+  function logout() {
+    window.location.href = "login.html";
+}
 </script>
 
 </html>
