@@ -1,25 +1,41 @@
-const toggleBtn = document.getElementById("theme-toggle");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (localStorage.getItem("theme") === "light") {
-document.body.classList.add("light-mode");
-toggleBtn.textContent = "☀️";
-}
+    // THEME TOGGLE
+    const toggleBtn = document.getElementById("theme-toggle");
 
-toggleBtn.addEventListener("click", () => {
-document.body.classList.toggle("light-mode");
+    if (toggleBtn) {
+        if (localStorage.getItem("theme") === "light") {
+            document.body.classList.add("light-mode");
+            toggleBtn.textContent = "☀️";
+        }
 
-if (document.body.classList.contains("light-mode")) {
-toggleBtn.textContent = "☀️";
-localStorage.setItem("theme", "light");
-} else {
-toggleBtn.textContent = "🌙";
-localStorage.setItem("theme", "dark");
-}
-});
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
 
-const hamburger = document.getElementById("hamburger");
+            if (document.body.classList.contains("light-mode")) {
+                toggleBtn.textContent = "☀️";
+                localStorage.setItem("theme", "light");
+            } else {
+                toggleBtn.textContent = "🌙";
+                localStorage.setItem("theme", "dark");
+            }
+        });
+    }
+
+    console.log("JS Loaded");
+
+    // HAMBURGER MENU
+    const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
 
+    if (!hamburger) {
+        console.error("Hamburger NOT found");
+        return;
+    }
+
     hamburger.addEventListener("click", () => {
+        console.log("clicked");
         navMenu.classList.toggle("active");
     });
+
+});

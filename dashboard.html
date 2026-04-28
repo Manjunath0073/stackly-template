@@ -6,45 +6,290 @@
 
   <link rel="stylesheet" href="dashboard.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="dashboard-body">
 
+<div class="dashboard">
 
-<div class="sidebar">
-  <h2>IT Admin</h2>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
 
-  <ul>
-    <li><a href="404.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
-    <li><a href="404.html"><i class="fas fa-users"></i> Users</a></li>
-    <li><a href="404.html"><i class="fas fa-box"></i> Orders</a></li>
-    <li><a href="404.html"><i class="fas fa-envelope"></i> Messages</a></li>
-  </ul>
+  <!-- Logo + Navigation Group -->
+    <div class="sidebar-top">
+      <div class="logo">
+        <img src="Assets/logo-stackly.webp" alt="Stackly Logo">
+      </div>
 
-</div>
+      
+    <ul class="menu">
+      <li class="active">
+        <a href="404.html">
+          <i class="fas fa-chart-pie"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="404.html">
+          <i class="fas fa-folder"></i> Projects
+        </a>
+      </li>
+      <li>
+        <a href="/404.html">
+          <i class="fas fa-chart-line"></i> Analytics
+        </a>
+      </li>
+      <li>
+        <a href="/404.html">
+          <i class="fas fa-users"></i> Team
+        </a>
+      </li>
+      <li>
+        <a href="/404.html">
+          <i class="fas fa-cog"></i> Settings
+        </a>
+      </li>
+    </ul>
 
-<!-- MAIN -->
-<div class="main">
-
-  <div class="topbar">
-    <h1>Dashboard</h1>
-
-    <div class="user-info">
-      <i class="fas fa-user-circle"></i>
-      <h3>Welcome, <span id="userEmail"></span></h3>
-      <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+    <!-- Logout -->
+    <div class="logout">
+      <a href="/login.html">
+        <button type="button">Logout</button>
+      </a>
     </div>
   </div>
 
-  <div class="cards">
-    <div class="card">Users <h2>120</h2></div>
-    <div class="card">Orders <h2>75</h2></div>
-    <div class="card">Revenue <h2>$5K</h2></div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+
+      <div class="mobile-logo">
+        <img src="Assets/logo-stackly.webp" alt="Stackly Logo">
+      </div>
+
+      <input type="text" placeholder="Search projects or members..." class="search">
+
+      <div class="user-info">
+        <div>
+          <h4>John Doe</h4>
+          <span>Employee</span>
+        </div>
+        <img src="https://i.pravatar.cc/40" class="avatar">
+        <button class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      
+    </div>
+
+    <!-- ✅ NEW LAYOUT WRAPPER -->
+    <div class="dashboard-layout">
+
+      <!-- LEFT SIDE -->
+      <div class="left">
+
+        <!-- STATS CARDS -->
+        <div class="cards">
+
+          <div class="card">
+            <p>Total Projects</p>
+            <h2>24</h2>
+            <div class="glow-line"></div>
+            <span class="green">↑ 12% from last month</span>
+          </div>
+
+          <div class="card">
+            <p>Active Tasks</p>
+            <h2>145</h2>
+            <div class="glow-line"></div>
+            <span class="red">↓ 5% from last month</span>
+          </div>
+
+          <div class="card">
+            <p>Team Members</p>
+            <h2>48</h2>
+            <div class="glow-line"></div>
+            <span class="green">↑ 2 new this week</span>
+          </div>
+
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="progress-section">
+
+          <div class="progress-item">
+            <p>UI Design</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 80%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item">
+            <p>Backend</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 60%"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ACTIVITY -->
+        <div class="activity">
+          <h3>Recent Activity</h3>
+
+          <div class="activity-item">
+            <p><b>Code merge to main branch</b></p>
+            <span>10 mins ago</span>
+          </div>
+
+          <div class="activity-item">
+            <p><b>AWS Infrastructure scaled up</b></p>
+            <span>2 hours ago</span>
+          </div>
+
+          <div class="activity-item">
+            <p><b>Frontend deployment successful</b></p>
+            <span>5 hours ago</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="right">
+
+        <!-- TASKS -->
+        <div class="tasks">
+          <h3>My Tasks</h3>
+
+          <div class="task">
+            <p>Update SSL Certificates</p>
+            <span class="pending">Pending</span>
+          </div>
+
+          <div class="task">
+            <p>Client Demo Setup</p>
+            <span class="done">Done</span>
+          </div>
+
+          <div class="task">
+            <p>Database Migration</p>
+            <span class="pending">Pending</span>
+          </div>
+        </div>
+
+        <!-- CHART -->
+        <div class="chart-box">
+          <h3>Performance Overview</h3>
+          <canvas id="myChart"></canvas>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
 </div>
 
-<script src="dashboard.js"></script>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="menu">
+  <li class="active">
+    <a href="/404.html">Dashboard</a>
+  </li>
+  <li>
+    <a href="/404.html">Projects</a>
+  </li>
+  <li>
+    <a href="/404.html">Analytics</a>
+  </li>
+  <li>
+    <a href="/404.html">Team</a>
+  </li>
+  <li>
+    <a href="/404.html">Settings</a>
+  </li>
+</ul>
+
+  <div class="logout">Logout</div>
+</div>
+
 
 </body>
+
+<script>
+const ctx = document.getElementById('myChart');
+
+const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        datasets: [{
+            label: 'Projects',
+            data: [12, 19, 10, 15, 22, 30],
+            borderColor: '#00bfff',
+            backgroundColor: 'rgba(0,191,255,0.2)',
+            tension: 0.4,
+            fill: true
+        }]
+    },
+    options: {
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            x: { ticks: { color: '#ccc' } },
+            y: { ticks: { color: '#ccc' } }
+        }
+    }
+});
+
+/* LIVE STATS */
+function updateStats() {
+    document.querySelectorAll('.card h2').forEach(el => {
+        let current = parseInt(el.innerText);
+        let random = Math.floor(Math.random() * 5);
+        el.innerText = current + random;
+    });
+}
+setInterval(updateStats, 3000);
+
+/* LIVE ACTIVITY */
+const activities = [
+    "New user registered",
+    "Server updated",
+    "Payment received",
+    "New order created"
+];
+
+setInterval(() => {
+    const container = document.querySelector('.activity');
+
+    const newItem = document.createElement('div');
+    newItem.classList.add('activity-item');
+    newItem.innerHTML = `<p><b>${activities[Math.floor(Math.random()*activities.length)]}</b></p><span>Just now</span>`;
+
+    container.prepend(newItem);
+
+    if (container.children.length > 5) {
+        container.removeChild(container.lastChild);
+    }
+
+}, 4000);
+
+
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
+</script>
+
 </html>
